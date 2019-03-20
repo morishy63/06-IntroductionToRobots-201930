@@ -2,18 +2,20 @@
 An opportunity to explore how to make an EV3 Robot make sounds.
 
 Authors: Dave Fisher, David Mutchler, Vibha Alangar,
-         their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues, and Yuhei Morishita.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import simple_rosebotics as rb
-
+import time
 
 # ------------------------------------------------------------------------------
-# TODO: 2.  This is an   ** OPTIONAL **   exercise.
+# DONE: 2.  This is an   ** OPTIONAL **   exercise.
 #   Using the DOT trick, add code to  make_sounds  to make the robot
 #   make sounds in various ways, using the instance variables of the robot's
 #   SOUND system.
 # ------------------------------------------------------------------------------
+
+
 def main():
     fun_song = [(392, 350, 100), (392, 350, 100), (392, 350, 100),
                 (311.1, 250, 100), (466.2, 25, 100), (392, 350, 100),
@@ -37,6 +39,13 @@ def main():
                 (466.16, 50, 400), (311.13, 25, 200), (392, 350, 100),
                 (311.13, 250, 100), (466.16, 25, 100), (392.00, 300, 150),
                 (311.13, 250, 100), (466.16, 25, 100), (392, 700)]
+
+    robot = rb.SoundSystem()
+    #robot.speech_maker.speak('Hello').wait()
+    #robot.tone_maker.play_tone_sequence(fun_song).wait()
+
+    for k in range(0,1000,50):
+        robot.tone_maker.play_tone(k,8).wait()
 
 
 main()
